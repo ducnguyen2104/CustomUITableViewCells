@@ -9,16 +9,20 @@
 import UIKit
 
 class TableViewController: UITableViewController {
-    
+    let cellId1 = "CellId1"
+    let cellId3 = "CellId3"
     var arrayOfCellData = [CellData]()
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         arrayOfCellData = [
             Cell1Image(title: "Title 1", source: "Source", image1: #imageLiteral(resourceName: "yellow200x150")),
             Cell1Image(title: "Title 1", source: "Source", image1: #imageLiteral(resourceName: "red200x150")),
             Cell1Image(title: "Title 1", source: "Source", image1: #imageLiteral(resourceName: "blue200x150")),
-            Cell3Image(title: "Title 3", source: "Source", image1: #imageLiteral(resourceName: "red200x150"), image2: #imageLiteral(resourceName: "yellow200x150"), image3: #imageLiteral(resourceName: "blue200x150"))
+            /*Cell3Image(title: "Title 3", source: "Source", image1: #imageLiteral(resourceName: "yellow200x150"), image2: #imageLiteral(resourceName: "red200x150"), image3: #imageLiteral(resourceName: "blue200x150"))*/
         ]
+        tableView.register(TableViewCell1Image.self, forCellReuseIdentifier: cellId1)
+        tableView.register(TableViewCell3Image.self, forCellReuseIdentifier: cellId3)
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -30,7 +34,7 @@ class TableViewController: UITableViewController {
         
         if arrayOfCellData[indexPath.row] is Cell1Image {
         
-            let cell = Bundle.main.loadNibNamed("TableViewCell1Image", owner: self, options: nil)?.first as! TableViewCell1Image
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellId1, for: indexPath) as! TableViewCell1Image
             cell.image1.image = (arrayOfCellData[indexPath.row] as! Cell1Image).image1
             cell.title.text = (arrayOfCellData[indexPath.row] as! Cell1Image).title
             cell.source.text = (arrayOfCellData[indexPath.row] as! Cell1Image).source
@@ -38,8 +42,7 @@ class TableViewController: UITableViewController {
         }
         
         else {
-            let cell = Bundle.main.loadNibNamed("TableViewCell3Image", owner: self, options: nil)?.first as! TableViewCell3Image
-            
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellId3, for: indexPath) as! TableViewCell3Image
             cell.image1.image = (arrayOfCellData[indexPath.row] as! Cell3Image).image1
             cell.image2.image = (arrayOfCellData[indexPath.row] as! Cell3Image).image2
             cell.image3.image = (arrayOfCellData[indexPath.row] as! Cell3Image).image3
@@ -52,10 +55,10 @@ class TableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if arrayOfCellData[indexPath.row] is Cell1Image {
-            return 100
+            return (view.frame.width - 40)/3 + 20
         }
         else {
-            return 180
+            return (view.frame.width - 40)/3 + 120
         }
     }
 }

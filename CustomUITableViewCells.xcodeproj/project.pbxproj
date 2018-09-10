@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		971D8A2D21410FCC00874BED /* TableViewCell3Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971D8A2B21410FCB00874BED /* TableViewCell3Image.swift */; };
-		971D8A2E21410FCC00874BED /* TableViewCell3Image.xib in Resources */ = {isa = PBXBuildFile; fileRef = 971D8A2C21410FCB00874BED /* TableViewCell3Image.xib */; };
 		971D8A302141274700874BED /* Cell1Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971D8A2F2141274700874BED /* Cell1Image.swift */; };
 		971D8A32214129B200874BED /* CellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971D8A31214129B200874BED /* CellData.swift */; };
 		971D8A3421412AB900874BED /* Cell3Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 971D8A3321412AB900874BED /* Cell3Image.swift */; };
@@ -18,12 +17,10 @@
 		97CB5D98213FF5F800BE4D4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97CB5D97213FF5F800BE4D4E /* Assets.xcassets */; };
 		97CB5D9B213FF5F800BE4D4E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97CB5D99213FF5F800BE4D4E /* LaunchScreen.storyboard */; };
 		97CB5DA4213FF75A00BE4D4E /* TableViewCell1Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CB5DA2213FF75A00BE4D4E /* TableViewCell1Image.swift */; };
-		97CB5DA5213FF75A00BE4D4E /* TableViewCell1Image.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97CB5DA3213FF75A00BE4D4E /* TableViewCell1Image.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		971D8A2B21410FCB00874BED /* TableViewCell3Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell3Image.swift; sourceTree = "<group>"; };
-		971D8A2C21410FCB00874BED /* TableViewCell3Image.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell3Image.xib; sourceTree = "<group>"; };
 		971D8A2F2141274700874BED /* Cell1Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell1Image.swift; sourceTree = "<group>"; };
 		971D8A31214129B200874BED /* CellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellData.swift; sourceTree = "<group>"; };
 		971D8A3321412AB900874BED /* Cell3Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell3Image.swift; sourceTree = "<group>"; };
@@ -35,7 +32,6 @@
 		97CB5D9A213FF5F800BE4D4E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97CB5D9C213FF5F800BE4D4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		97CB5DA2213FF75A00BE4D4E /* TableViewCell1Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell1Image.swift; sourceTree = "<group>"; };
-		97CB5DA3213FF75A00BE4D4E /* TableViewCell1Image.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell1Image.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,9 +70,7 @@
 				971D8A2F2141274700874BED /* Cell1Image.swift */,
 				971D8A3321412AB900874BED /* Cell3Image.swift */,
 				97CB5DA2213FF75A00BE4D4E /* TableViewCell1Image.swift */,
-				97CB5DA3213FF75A00BE4D4E /* TableViewCell1Image.xib */,
 				971D8A2B21410FCB00874BED /* TableViewCell3Image.swift */,
-				971D8A2C21410FCB00874BED /* TableViewCell3Image.xib */,
 				97CB5D94213FF5F700BE4D4E /* Main.storyboard */,
 				97CB5D97213FF5F800BE4D4E /* Assets.xcassets */,
 				97CB5D99213FF5F800BE4D4E /* LaunchScreen.storyboard */,
@@ -144,10 +138,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				97CB5D9B213FF5F800BE4D4E /* LaunchScreen.storyboard in Resources */,
-				971D8A2E21410FCC00874BED /* TableViewCell3Image.xib in Resources */,
 				97CB5D98213FF5F800BE4D4E /* Assets.xcassets in Resources */,
 				97CB5D96213FF5F700BE4D4E /* Main.storyboard in Resources */,
-				97CB5DA5213FF75A00BE4D4E /* TableViewCell1Image.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

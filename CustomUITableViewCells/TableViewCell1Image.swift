@@ -10,7 +10,68 @@ import UIKit
 
 class TableViewCell1Image: UITableViewCell {
     
-    @IBOutlet weak var image1: UIImageView!
-    @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var source: UILabel!
+    var cell1Image: Cell1Image? {
+        didSet {
+            title.text = cell1Image?.title
+            image1.image = cell1Image?.image1
+            source.text = cell1Image?.source
+        }
+    }
+    
+    let title: UILabel = {
+        let label = UILabel()
+        label.textColor = .black
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.textAlignment = .left
+        label.backgroundColor = .yellow
+        return label
+    } ()
+    
+    let image1: UIImageView = {
+        let imageView = UIImageView(image: #imageLiteral(resourceName: "yellow200x150"))
+        imageView.contentMode = .scaleAspectFit
+        imageView.clipsToBounds = true
+        imageView.backgroundColor = .green
+        return imageView
+    }()
+    
+    let source: UILabel = {
+        let label = UILabel()
+        label.textColor = .gray
+        label.font = UIFont.systemFont(ofSize: 12)
+        label.textAlignment = .left
+        label.backgroundColor = .cyan
+        return label
+    } ()
+    
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        backgroundColor = .blue
+        addSubview(title)
+        addSubview(image1)
+        addSubview(source)
+        
+        title.translatesAutoresizingMaskIntoConstraints = false
+        image1.translatesAutoresizingMaskIntoConstraints = false
+        source.translatesAutoresizingMaskIntoConstraints = false
+        
+        image1.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive = true
+        image1.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10).isActive = true
+        image1.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
+        image1.widthAnchor.constraint(equalTo: image1.heightAnchor, constant: 4/3).isActive = true
+        
+        title.topAnchor.constraint(equalTo: image1.topAnchor).isActive = true
+        title.heightAnchor.constraint(equalTo: image1.heightAnchor, multiplier: 0.75).isActive = true
+        title.leadingAnchor.constraint(equalTo: image1.trailingAnchor, constant: 10).isActive = true
+        title.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
+        
+        source.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 10).isActive = true
+        source.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10).isActive = true
+        source.leadingAnchor.constraint(equalTo: image1.trailingAnchor, constant: 10).isActive = true
+        source.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
