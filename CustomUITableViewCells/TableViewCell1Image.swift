@@ -23,7 +23,6 @@ class TableViewCell1Image: UITableViewCell {
         label.textColor = .black
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.textAlignment = .left
-        label.backgroundColor = .yellow
         return label
     } ()
     
@@ -31,7 +30,6 @@ class TableViewCell1Image: UITableViewCell {
         let imageView = UIImageView(image: #imageLiteral(resourceName: "yellow200x150"))
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
-        imageView.backgroundColor = .green
         return imageView
     }()
     
@@ -40,13 +38,11 @@ class TableViewCell1Image: UITableViewCell {
         label.textColor = .gray
         label.font = UIFont.systemFont(ofSize: 12)
         label.textAlignment = .left
-        label.backgroundColor = .cyan
         return label
     } ()
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        backgroundColor = .blue
         addSubview(title)
         addSubview(image1)
         addSubview(source)
@@ -55,18 +51,19 @@ class TableViewCell1Image: UITableViewCell {
         image1.translatesAutoresizingMaskIntoConstraints = false
         source.translatesAutoresizingMaskIntoConstraints = false
         
-        image1.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive = true
-        image1.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10).isActive = true
+        image1.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
+        image1.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -10).isActive = true
         image1.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
-        image1.widthAnchor.constraint(equalTo: image1.heightAnchor, constant: 4/3).isActive = true
+        image1.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1/3, constant: -10).isActive = true
+        image1.heightAnchor.constraint(equalTo: image1.widthAnchor, multiplier: 0.75).isActive = true
         
         title.topAnchor.constraint(equalTo: image1.topAnchor).isActive = true
         title.heightAnchor.constraint(equalTo: image1.heightAnchor, multiplier: 0.75).isActive = true
         title.leadingAnchor.constraint(equalTo: image1.trailingAnchor, constant: 10).isActive = true
         title.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
         
-        source.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 10).isActive = true
-        source.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10).isActive = true
+        source.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -10).isActive = true
+        source.heightAnchor.constraint(lessThanOrEqualTo: image1.heightAnchor, multiplier: 0.25)
         source.leadingAnchor.constraint(equalTo: image1.trailingAnchor, constant: 10).isActive = true
         source.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
     }

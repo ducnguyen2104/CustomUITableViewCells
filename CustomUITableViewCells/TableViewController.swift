@@ -19,7 +19,13 @@ class TableViewController: UITableViewController {
             Cell1Image(title: "Title 1", source: "Source", image1: #imageLiteral(resourceName: "yellow200x150")),
             Cell1Image(title: "Title 1", source: "Source", image1: #imageLiteral(resourceName: "red200x150")),
             Cell1Image(title: "Title 1", source: "Source", image1: #imageLiteral(resourceName: "blue200x150")),
-            /*Cell3Image(title: "Title 3", source: "Source", image1: #imageLiteral(resourceName: "yellow200x150"), image2: #imageLiteral(resourceName: "red200x150"), image3: #imageLiteral(resourceName: "blue200x150"))*/
+            Cell3Image(title: "Title 3", source: "Source", image1: #imageLiteral(resourceName: "yellow200x150"), image2: #imageLiteral(resourceName: "red200x150"), image3: #imageLiteral(resourceName: "blue200x150")),
+            Cell1Image(title: "Title 1", source: "Source", image1: #imageLiteral(resourceName: "red200x150")),
+            Cell3Image(title: "Title 3", source: "Source", image1: #imageLiteral(resourceName: "red200x150"), image2: #imageLiteral(resourceName: "red200x150"), image3: #imageLiteral(resourceName: "blue200x150")),
+            Cell3Image(title: "Title 3", source: "Source", image1: #imageLiteral(resourceName: "yellow200x150"), image2: #imageLiteral(resourceName: "red200x150"), image3: #imageLiteral(resourceName: "blue200x150")),
+            Cell1Image(title: "Title 1", source: "Source", image1: #imageLiteral(resourceName: "red200x150")),
+            Cell1Image(title: "Title 1", source: "Source", image1: #imageLiteral(resourceName: "blue200x150")),
+            Cell3Image(title: "Title 3", source: "Source", image1: #imageLiteral(resourceName: "yellow200x150"), image2: #imageLiteral(resourceName: "red200x150"), image3: #imageLiteral(resourceName: "yellow200x150")),
         ]
         tableView.register(TableViewCell1Image.self, forCellReuseIdentifier: cellId1)
         tableView.register(TableViewCell3Image.self, forCellReuseIdentifier: cellId3)
@@ -43,23 +49,23 @@ class TableViewController: UITableViewController {
         
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: cellId3, for: indexPath) as! TableViewCell3Image
+            cell.title.text = (arrayOfCellData[indexPath.row] as! Cell3Image).title
             cell.image1.image = (arrayOfCellData[indexPath.row] as! Cell3Image).image1
             cell.image2.image = (arrayOfCellData[indexPath.row] as! Cell3Image).image2
             cell.image3.image = (arrayOfCellData[indexPath.row] as! Cell3Image).image3
-            cell.title.text = (arrayOfCellData[indexPath.row] as! Cell3Image).title
             cell.source.text = (arrayOfCellData[indexPath.row] as! Cell3Image).source
             return cell
         }
         
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if arrayOfCellData[indexPath.row] is Cell1Image {
-            return (view.frame.width - 40)/3 + 20
-        }
-        else {
-            return (view.frame.width - 40)/3 + 120
-        }
-    }
+//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        if arrayOfCellData[indexPath.row] is Cell1Image {
+//            return (view.frame.width - 40)/3 + 20
+//        }
+//        else {
+//            return (view.frame.width - 40)/3 + 120
+//        }
+//    }
 }
 

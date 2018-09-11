@@ -25,7 +25,6 @@ class TableViewCell3Image: UITableViewCell {
         label.textColor = .black
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.textAlignment = .left
-        label.backgroundColor = .yellow
         return label
     } ()
     
@@ -33,7 +32,6 @@ class TableViewCell3Image: UITableViewCell {
         let imageView = UIImageView(image: #imageLiteral(resourceName: "yellow200x150"))
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
-        imageView.backgroundColor = .green
         return imageView
     }()
     
@@ -41,7 +39,6 @@ class TableViewCell3Image: UITableViewCell {
         let imageView = UIImageView(image: #imageLiteral(resourceName: "red200x150"))
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
-        imageView.backgroundColor = .green
         return imageView
     }()
     
@@ -49,7 +46,6 @@ class TableViewCell3Image: UITableViewCell {
         let imageView = UIImageView(image: #imageLiteral(resourceName: "blue200x150"))
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
-        imageView.backgroundColor = .green
         return imageView
     }()
     
@@ -58,15 +54,15 @@ class TableViewCell3Image: UITableViewCell {
         label.textColor = .gray
         label.font = UIFont.systemFont(ofSize: 12)
         label.textAlignment = .left
-        label.backgroundColor = .cyan
         return label
     } ()
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        backgroundColor = .blue
         addSubview(title)
         addSubview(image1)
+        addSubview(image2)
+        addSubview(image3)
         addSubview(source)
         
         title.translatesAutoresizingMaskIntoConstraints = false
@@ -75,23 +71,23 @@ class TableViewCell3Image: UITableViewCell {
         image3.translatesAutoresizingMaskIntoConstraints = false
         source.translatesAutoresizingMaskIntoConstraints = false
         
-        image1.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 10).isActive = true
-        image1.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
-        image1.widthAnchor.constraint(equalTo: widthAnchor, constant: 1/3).isActive = true
-        image1.heightAnchor.constraint(equalTo: image1.widthAnchor, multiplier: 0.75).isActive = true
-        
         title.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive = true
-        title.heightAnchor.constraint(lessThanOrEqualTo: image1.heightAnchor).isActive = true
-        title.leadingAnchor.constraint(equalTo: image1.trailingAnchor, constant: 10).isActive = true
+        title.heightAnchor.constraint(lessThanOrEqualTo:heightAnchor, multiplier: 1/3).isActive = true
+        title.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
         title.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
         
+        image1.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 10).isActive = true
+        image1.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
+        image1.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1/3, constant: -10).isActive = true
+        image1.heightAnchor.constraint(equalTo: image1.widthAnchor, multiplier: 0.75).isActive = true
+        
         image2.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 10).isActive = true
-        image2.leadingAnchor.constraint(equalTo: image1.trailingAnchor, constant: 10).isActive = true
+        image2.leadingAnchor.constraint(equalTo: image1.trailingAnchor, constant: 5).isActive = true
         image2.widthAnchor.constraint(equalTo: image1.widthAnchor).isActive = true
         image2.heightAnchor.constraint(equalTo: image1.heightAnchor).isActive = true
         
         image3.topAnchor.constraint(equalTo: title.bottomAnchor, constant: 10).isActive = true
-        image3.leadingAnchor.constraint(equalTo: image2.trailingAnchor, constant: 10).isActive = true
+        image3.leadingAnchor.constraint(equalTo: image2.trailingAnchor, constant: 5).isActive = true
         image3.widthAnchor.constraint(equalTo: image1.widthAnchor).isActive = true
         image3.heightAnchor.constraint(equalTo: image1.heightAnchor).isActive = true
         
