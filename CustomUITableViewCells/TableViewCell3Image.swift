@@ -24,7 +24,8 @@ class TableViewCell3Image: UITableViewCell {
         let label = UILabel()
         label.textColor = .black
         label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.textAlignment = .left
+        label.textAlignment = .justified
+        label.numberOfLines = 0
         return label
     } ()
     

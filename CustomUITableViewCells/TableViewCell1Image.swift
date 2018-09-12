@@ -22,7 +22,9 @@ class TableViewCell1Image: UITableViewCell {
         let label = UILabel()
         label.textColor = .black
         label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.textAlignment = .left
+        label.textAlignment = .justified
+        label.numberOfLines = 0
+//        label.backgroundColor = .green
         return label
     } ()
     
@@ -38,6 +40,7 @@ class TableViewCell1Image: UITableViewCell {
         label.textColor = .gray
         label.font = UIFont.systemFont(ofSize: 12)
         label.textAlignment = .left
+//        label.backgroundColor = .cyan
         return label
     } ()
     
@@ -47,25 +50,26 @@ class TableViewCell1Image: UITableViewCell {
         addSubview(image1)
         addSubview(source)
         
+//        backgroundColor = .yellow
+        
         title.translatesAutoresizingMaskIntoConstraints = false
         image1.translatesAutoresizingMaskIntoConstraints = false
         source.translatesAutoresizingMaskIntoConstraints = false
         
-        image1.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
-        image1.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -10).isActive = true
+        image1.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive = true
         image1.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
         image1.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 1/3, constant: -10).isActive = true
         image1.heightAnchor.constraint(equalTo: image1.widthAnchor, multiplier: 0.75).isActive = true
         
-        title.topAnchor.constraint(equalTo: image1.topAnchor).isActive = true
-        title.heightAnchor.constraint(equalTo: image1.heightAnchor, multiplier: 0.75).isActive = true
+        title.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive = true
         title.leadingAnchor.constraint(equalTo: image1.trailingAnchor, constant: 10).isActive = true
         title.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
+        title.bottomAnchor.constraint(equalTo: source.topAnchor, constant: 10)
         
-        source.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -10).isActive = true
-        source.heightAnchor.constraint(lessThanOrEqualTo: image1.heightAnchor, multiplier: 0.25)
-        source.leadingAnchor.constraint(equalTo: image1.trailingAnchor, constant: 10).isActive = true
+        source.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10).isActive = true
+        source.heightAnchor.constraint(lessThanOrEqualTo: heightAnchor, multiplier: 0.2)
         source.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
+        source.widthAnchor.constraint(equalTo: title.widthAnchor).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {
