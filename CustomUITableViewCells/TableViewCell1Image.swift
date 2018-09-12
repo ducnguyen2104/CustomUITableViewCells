@@ -18,7 +18,7 @@ class TableViewCell1Image: UITableViewCell {
         }
     }
     
-    let title: UILabel = {
+    var title: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.font = UIFont.boldSystemFont(ofSize: 16)
@@ -28,14 +28,14 @@ class TableViewCell1Image: UITableViewCell {
         return label
     } ()
     
-    let image1: UIImageView = {
+    var image1: UIImageView = {
         let imageView = UIImageView(image: #imageLiteral(resourceName: "yellow200x150"))
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
     }()
     
-    let source: UILabel = {
+    var source: UILabel = {
         let label = UILabel()
         label.textColor = .gray
         label.font = UIFont.systemFont(ofSize: 12)
@@ -75,4 +75,8 @@ class TableViewCell1Image: UITableViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        }
 }

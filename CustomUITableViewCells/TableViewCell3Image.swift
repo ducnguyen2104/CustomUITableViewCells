@@ -31,21 +31,21 @@ class TableViewCell3Image: UITableViewCell {
     
     let image1: UIImageView = {
         let imageView = UIImageView(image: #imageLiteral(resourceName: "yellow200x150"))
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
     }()
     
     let image2: UIImageView = {
         let imageView = UIImageView(image: #imageLiteral(resourceName: "red200x150"))
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
     }()
     
     let image3: UIImageView = {
         let imageView = UIImageView(image: #imageLiteral(resourceName: "blue200x150"))
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
     }()
