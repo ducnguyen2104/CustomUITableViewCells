@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import Kingfisher
 
 class TableViewCell1Image: UITableViewCell {
     
     var cell1Image: Cell1Image? {
         didSet {
             title.text = cell1Image?.title
-            image1.image = cell1Image?.image1
+            image1.kf.setImage(with: URL(string: (cell1Image?.image1URL)!)!, options: [.forceRefresh])
             source.text = cell1Image?.source
         }
     }
@@ -24,7 +25,7 @@ class TableViewCell1Image: UITableViewCell {
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.textAlignment = .justified
         label.numberOfLines = 0
-//        label.backgroundColor = .green
+        //        label.backgroundColor = .green
         return label
     } ()
     
@@ -40,7 +41,7 @@ class TableViewCell1Image: UITableViewCell {
         label.textColor = .gray
         label.font = UIFont.systemFont(ofSize: 12)
         label.textAlignment = .left
-//        label.backgroundColor = .cyan
+        //        label.backgroundColor = .cyan
         return label
     } ()
     
@@ -50,7 +51,7 @@ class TableViewCell1Image: UITableViewCell {
         addSubview(image1)
         addSubview(source)
         
-//        backgroundColor = .yellow
+        //        backgroundColor = .yellow
         
         title.translatesAutoresizingMaskIntoConstraints = false
         image1.translatesAutoresizingMaskIntoConstraints = false
@@ -78,5 +79,7 @@ class TableViewCell1Image: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        }
+        image1.kf.cancelDownloadTask()
+        image1.image = nil
+    }
 }

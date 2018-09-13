@@ -12,11 +12,11 @@ import UIKit
 class Cell1Image: CellData {
     let title: String!
     let source: String!
-    let image1: UIImage!
+    let image1URL: String!
     
-    init(title: String, source: String, image1: UIImage) {
+    init(title: String, source: String, image1URL: String) {
         self.title = title
         self.source = source
-        self.image1 = image1
+        self.image1URL = image1URL
     }
 }

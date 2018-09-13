@@ -12,15 +12,15 @@ import UIKit
 class Cell3Image: CellData {
     let title: String!
     let source: String!
-    let image1: UIImage!
-    let image2: UIImage!
-    let image3: UIImage!
+    let image1URL: String!
+    let image2URL: String!
+    let image3URL: String!
     
-    init(title: String, source: String, image1: UIImage, image2: UIImage, image3: UIImage) {
+    init(title: String, source: String, image1URL: String, image2URL: String, image3URL: String) {
         self.title = title
         self.source = source
-        self.image1 = image1
-        self.image2 = image2
-        self.image3 = image3
+        self.image1URL = image1URL
+        self.image2URL = image2URL
+        self.image3URL = image3URL
     }
 }

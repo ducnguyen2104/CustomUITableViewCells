@@ -13,9 +13,9 @@ class TableViewCell3Image: UITableViewCell {
     var cell3Image: Cell3Image? {
         didSet {
             title.text = cell3Image?.title
-            image1.image = cell3Image?.image1
-            image2.image = cell3Image?.image2
-            image3.image = cell3Image?.image3
+            image1.kf.setImage(with: URL(string: (cell3Image?.image1URL)!)!, options: [.forceRefresh])
+            image2.kf.setImage(with: URL(string: (cell3Image?.image2URL)!)!, options: [.forceRefresh])
+            image3.kf.setImage(with: URL(string: (cell3Image?.image3URL)!)!, options: [.forceRefresh])
             source.text = cell3Image?.source
         }
     }
@@ -100,5 +100,15 @@ class TableViewCell3Image: UITableViewCell {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        image1.kf.cancelDownloadTask()
+        image2.kf.cancelDownloadTask()
+        image3.kf.cancelDownloadTask()
+        image1.image = nil
+        image2.image = nil
+        image3.image = nil
     }
 }
